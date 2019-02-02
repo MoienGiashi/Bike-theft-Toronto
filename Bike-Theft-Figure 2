@@ -48,3 +48,45 @@ print(freq16)
 freq15=theft_15['Neighbourhood'].value_counts()
 print(freq15)
 
+
+
+df17=freq17.head(6)
+df16=freq16.head(6)
+df15=freq15.head(6)
+x17=df17[0]
+
+
+#plt.figure(1)
+#
+## linear
+#plt.subplot(221)
+#plt.bar(y_pos, period , align='center', alpha=0.5, color='r')
+#plt.xticks(y_pos, objects)
+#plt.ylabel('Numer of stolen bikes in Toronto')
+#plt.xlabel('Period')
+#plt.title('Stolen Bikes')
+#
+#
+## log
+#plt.subplot(222)
+#plt.bar(x, y)
+#plt.yscale('log')
+#plt.title('log')
+#plt.grid(True)
+#
+#
+## symmetric log
+#plt.subplot(223)
+#plt.plot(x, y - y.mean())
+#plt.yscale('symlog', linthreshy=0.01)
+#plt.title('symlog')
+#plt.grid(True)
+#
+## logit
+#plt.subplot(224)
+#plt.plot(x, y)
+#plt.yscale('logit')
+#plt.title('logit')
+#plt.grid(True)
+#
+#
