@@ -1,0 +1,50 @@
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+
+#defining directory
+os.chdir('C:/Users/LM 617/Desktop/')
+
+#reading the csv file
+
+Theft=pd.read_csv('Bicycle_Thefts.csv',low_memory=False)
+
+# frequency of each event can be saved in a new df called freq
+freq=Theft['Neighbourhood'].value_counts()
+print(freq)
+
+theft_17=Theft.loc[Theft['Occurrence_Year'] == 2017]
+theft_16=Theft.loc[Theft['Occurrence_Year'] == 2016]
+theft_15=Theft.loc[Theft['Occurrence_Year'] == 2015]
+
+t17=theft_17.shape[0]
+t16=theft_16.shape[0]
+t15=theft_15.shape[0]
+
+objects = ('2015', '2016', '2017')
+y_pos = np.arange(len(objects))
+period = [t15,t16,t17]
+
+ 
+plt.bar(y_pos, period , align='center', alpha=0.5, color='r')
+plt.xticks(y_pos, objects)
+plt.ylabel('Numer of stolen bikes in Toronto')
+plt.xlabel('Period')
+plt.title('Stolen Bikes')
+
+plt.show()
+
+
+freq17=theft_17['Neighbourhood'].value_counts()
+print(freq17)
+
+
+freq16=theft_16['Neighbourhood'].value_counts()
+print(freq16)
+
+
+freq15=theft_15['Neighbourhood'].value_counts()
+print(freq15)
+
