@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -28,13 +27,7 @@ y_pos = np.arange(len(objects))
 period = [t15,t16,t17]
 
  
-plt.bar(y_pos, period , align='center', alpha=0.5, color='r')
-plt.xticks(y_pos, objects)
-plt.ylabel('Numer of stolen bikes in Toronto')
-plt.xlabel('Period')
-plt.title('Stolen Bikes')
 
-plt.show()
 
 
 freq17=theft_17['Neighbourhood'].value_counts()
@@ -48,45 +41,62 @@ print(freq16)
 freq15=theft_15['Neighbourhood'].value_counts()
 print(freq15)
 
-
-
 df17=freq17.head(6)
 df16=freq16.head(6)
 df15=freq15.head(6)
-x17=df17[0]
 
+x17=df16.keys()
+y17=df17[:]
 
-#plt.figure(1)
-#
+x16=df16.keys()
+y16=df16[:]
+x15=df15.keys()
+
+y15=df15[:]
+
+plt.figure(1)
+
 ## linear
-#plt.subplot(221)
-#plt.bar(y_pos, period , align='center', alpha=0.5, color='r')
-#plt.xticks(y_pos, objects)
-#plt.ylabel('Numer of stolen bikes in Toronto')
-#plt.xlabel('Period')
-#plt.title('Stolen Bikes')
+plt.subplot(221)
+plt.bar(y_pos, period , align='center', alpha=0.5, color='r')
+plt.xticks(y_pos, objects)
+plt.ylabel('Numer of stolen bikes in Toronto')
+plt.xlabel('Period')
+plt.title('Yearly Stolen Bikes')
+
+
+## neighbor hoods in 17
+plt.subplot(222)
+plt.bar(x17, y17, align='center', alpha=0.5, color='b')
+objects17 = df17.keys()
+y_pos17 = np.arange(len(objects17))
+plt.xticks(y_pos17, objects17)
+plt.ylabel('Numer of stolen bikes')
+plt.xlabel('Area')
+plt.title('Stolen Bikes 2017')
+plt.xticks(rotation=90)
 #
+# neighborhood 16
+plt.subplot(223)
+plt.bar(x16, y16, align='center', alpha=0.5, color='g')
+objects16 = df16.keys()
+y_pos16 = np.arange(len(objects16))
+plt.xticks(y_pos16, objects16)
+plt.ylabel('Numer of stolen bikes')
+plt.xlabel('Area')
+plt.title('Stolen Bikes 2016')
+plt.xticks(rotation=90)
+
+## 15
+plt.subplot(224)
+plt.bar(x15, y15, align='center', alpha=0.5, color='y')
+objects15 = df15.keys()
+y_pos15 = np.arange(len(objects15))
+plt.xticks(y_pos15, objects15)
+plt.ylabel('Numer of stolen bikes')
+plt.xlabel('Area')
+plt.title('Stolen Bikes 2015')
+plt.xticks(rotation=90)
 #
-## log
-#plt.subplot(222)
-#plt.bar(x, y)
-#plt.yscale('log')
-#plt.title('log')
-#plt.grid(True)
-#
-#
-## symmetric log
-#plt.subplot(223)
-#plt.plot(x, y - y.mean())
-#plt.yscale('symlog', linthreshy=0.01)
-#plt.title('symlog')
-#plt.grid(True)
-#
-## logit
-#plt.subplot(224)
-#plt.plot(x, y)
-#plt.yscale('logit')
-#plt.title('logit')
-#plt.grid(True)
-#
-#
+plt.subplots_adjust(top=1.5, bottom=0, left=0, right=0.95, hspace=2.6,
+                    wspace=0.5)
